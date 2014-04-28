@@ -3,7 +3,12 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
+  def new
+    @video = Video.new
+  end
+
   def show
-    @video = Video.find_by(params[:id])
+    @video = Video.find(params[:id])
   end
 end
+
