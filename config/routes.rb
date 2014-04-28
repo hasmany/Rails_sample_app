@@ -4,9 +4,14 @@ Metube::Application.routes.draw do
   get "/videos", to: "videos#index"
   get "/videos/:id", to: "videos#show"
   post "/videos", to: "videos#create"
+  get '/videos/:id/edit', to: 'videos#edit'
+  put '/videos/:id/', to: 'videos#update'
 
 
 
+
+
+# /videos already point to index
 
 
   # The priority is based upon order of creation: first created -> highest priority.
