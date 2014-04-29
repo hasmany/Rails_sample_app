@@ -36,3 +36,14 @@ Video.create([
     user_id: 1
   }
   ])
+
+Sound.create([
+  {
+    title: "Cool sound",
+    soundclound_url: "https://soundcloud.com/makersquare/files"
+  },
+  {
+    title: "Awesome music",
+    soundclound_url: "https://soundcloud.com/makersquare/sitcom-don"
+  }
+  ])

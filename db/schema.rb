@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227183457) do
+ActiveRecord::Schema.define(version: 20140428163512) do
+
+  create_table "sounds", force: true do |t|
+    t.string   "title"
+    t.string   "soundclound_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

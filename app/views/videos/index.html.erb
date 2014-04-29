@@ -1,7 +1,10 @@
 <h2>All Videos:</h2>
 <ul>
 <% @videos.each do |video| %>
+<%=link_to 'show', "/videos/#{video.id}"%>
+<%=link_to 'Edit', "/videos/#{video.id}/edit"%>
 <li><%= link_to video.title, "/videos/#{video.id}" %></li>
 <% end %>
 </ul>
 
+<%=link_to 'new', "/videos/new"%>

@@ -25,11 +25,17 @@ class VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
     # @video.attributes(video_params)
-    @video = Vidoe.update(video_params)
+    @video.update(video_params)
     redirect_to root_path
     # Notice, our show and edit actions are exaclty the same!
     # in both cases we grabbign an existing instance of Video
     # to do something
+  end
+
+  def destroy
+    @video = Video.find(params[:id])
+    @video.destroy
+    redirect_to root_path
   end
 
   private
@@ -38,10 +44,9 @@ class VideosController < ApplicationController
     params.require(:video).permit(:title, :description, :youtube_id)
   end
 
-  end
+
 
 end
-
 
 
 

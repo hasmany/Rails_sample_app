@@ -6,9 +6,12 @@ Metube::Application.routes.draw do
   post "/videos", to: "videos#create"
   get '/videos/:id/edit', to: 'videos#edit'
   put '/videos/:id/', to: 'videos#update'
+  delete '/videos/:id', to: 'videos#destroy'
 
-
-
+  get "/sounds/new", to: "sounds#new"
+  get "/sounds", to: "sounds#index"
+  post "/sounds", to: "sounds#create"
+  get "/sounds/:id", to: "sounds#show"
 
 
 # /videos already point to index
