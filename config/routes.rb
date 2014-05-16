@@ -1,17 +1,28 @@
 Metube::Application.routes.draw do
-  get "/videos/new", to: "videos#new"
+  # get "/videos/new", to: "videos#new"
   root to: "videos#index"
-  get "/videos", to: "videos#index"
-  get "/videos/:id", to: "videos#show"
-  post "/videos", to: "videos#create"
-  get '/videos/:id/edit', to: 'videos#edit'
-  put '/videos/:id/', to: 'videos#update'
-  delete '/videos/:id', to: 'videos#destroy'
+  # get "/videos", to: "videos#index"
+  # get "/videos/:id", to: "videos#show"
+  # post "/videos", to: "videos#create"
+  # get '/videos/:id/edit', to: 'videos#edit'
+  # put '/videos/:id/', to: 'videos#update'
+  # delete '/videos/:id', to: 'videos#destroy'
 
   get "/sounds/new", to: "sounds#new"
   get "/sounds", to: "sounds#index"
   post "/sounds", to: "sounds#create"
   get "/sounds/:id", to: "sounds#show"
+
+
+
+  resources :videos do
+    resources :comments, :only => [:create, :update, :destroy]
+  end
+
+  resources :sounds do
+    resources :comments, :only => [:create, :update, :destroy]
+  end
+
 
 
 # /videos already point to index

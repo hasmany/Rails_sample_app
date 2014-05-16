@@ -19,6 +19,7 @@ class SoundsController < ApplicationController
 
   def show
     @sound = Sound.find(params[:id])
+    @comments = @sound.comments
   end
 
   private

@@ -3,3 +3,39 @@
 <h3><%= @video.description %></h3>
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/<%= @video.youtube_id %>" frameborder="0" allowfullscreen></iframe>
+
+
+<p>Comments</p>
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%=comment.content.to_s + " " %><%= link_to 'delete', "/videos/#{@video.id}/comments/#{comment.id}", :method => :delete %></li>
+  <%end%>
+</ul>
+
+<!-- <form action="/videos" method="post">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="video[title]">
+
+  <label for="description">Description:</label>
+  <input type="text" id="description" name="video[description]">
+
+  <label for="youtube_id">Youtube ID:</label>
+  <input type="text" id="youtube_id" name="video[youtube_id]">
+
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+s
+  <input type="submit" value="submit">
+</form> -->
+<!-- /videos/:video_id/comments(.:format)     comments#create -->
+<!-- /videos/:video_id/comments -->
+
+<%= render "shared/form", :resource_type=> "videos", :resource=> @video%>
+
+<%=link_to "Index", root_path%>
+
+<!-- videos/:video_id/comments/:id -->
+<!-- <form action="/videos/<%=@video.id%>/comments" method="post">
+/videos/:video_id/comments/:id(
+  <label for="comment">Will delete last comment:</label>
+  <input type="submit" value="delete comment">
+</form> -->

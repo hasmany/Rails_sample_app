@@ -9,6 +9,9 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    # binding.pry
+    # @comment = Comment.find_by_video_id(params[:id])
+    @comments = @video.comments
   end
 
   def create

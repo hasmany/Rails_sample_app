@@ -18,12 +18,6 @@ User.create([
 
 Video.create([
   {
-    title: "Gladiator",
-    description: "A great movie",
-    youtube_id: "rNdKBPcVGJI",
-    user_id: 1
-  },
-  {
     title: "Pacific Rim",
     description: "Giant robots fighting giant sea monsters",
     youtube_id: "SSNU6t0pmkw",
@@ -37,6 +31,19 @@ Video.create([
   }
   ])
 
+vid1 = Video.create({
+    title: "Gladiator",
+    description: "A great movie",
+    youtube_id: "rNdKBPcVGJI",
+    user_id: 1
+  })
+
+
+# better way to create it like this, use the ActiveRecord associations
+
+# Comment.create({video_id: vid1.id, content: "cool"})
+vid1.comments.create({content: "awesome!"})
+
 Sound.create([
   {
     title: "Cool sound",
@@ -47,3 +54,35 @@ Sound.create([
     soundclound_url: "https://soundcloud.com/makersquare/sitcom-don"
   }
   ])
+
+vid1 = Video.create({
+    title: "Gladiator",
+    description: "A great movie",
+    youtube_id: "rNdKBPcVGJI",
+    user_id: 1
+  })
+
+
+
+user1= User.create(
+  {
+    name: "Hubert ",
+    email: "hubert@mail.com"
+  }
+  )
+
+comment1 = Comment.create(:user_id => 1, :commentable_type=>"Sound", :commentable_id=> 1)
+comment1 = Comment.create(:user_id => 1, :commentable_type=>"Video", :commentable_id=> 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
